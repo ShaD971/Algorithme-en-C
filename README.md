@@ -1,1 +1,1 @@
-# Algorithmique_C
+# Algorithme en C

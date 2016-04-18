@@ -3,12 +3,12 @@
 float puissance(float a,int n);
 
 int main(){
-	float nb=3, res;
-	int m=4;
-	/*printf("Entrez le nombre :");
-	scanf("%f,&nb");
+	float nb, res;
+	int m;
+	printf("Entrez le nombre :");
+	scanf("%f",&nb);
 	printf("Entrez sa puissance:");
-	scanf("%d,&m");*/
+	scanf("%d",&m);
 
 	//appel foction puissance
 	res= puissance(nb,m);
