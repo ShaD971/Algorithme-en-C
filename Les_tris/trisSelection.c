@@ -2,6 +2,7 @@
 #include <stdio.h>
 #define MAX 50
 void tri_selection(int tab[],int nb);
+void tri_insertion(int tab[],int nb);
 
 int main(){
 	int tab_valeurs[MAX], nbval=0,i,val=0;

@@ -8,3 +8,6 @@ Recussivité:
  - La tour d'hanoi.
 
 Les Tris:
+
+-tris selection/echange
+-tris a bulles
