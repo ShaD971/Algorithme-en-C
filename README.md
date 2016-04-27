@@ -9,6 +9,6 @@ Recussivité:
 
 Les Tris:
 
-- tris selection/echange
-- tris a bulles
-- tris par indices
+- Tris selection/echange
+- Tris a bulles
+- Tris par indices
