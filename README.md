@@ -11,3 +11,4 @@ Les Tris:
 
 -tris selection/echange
 -tris a bulles
+-tris par indices
