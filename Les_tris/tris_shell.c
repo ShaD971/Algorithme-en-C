@@ -31,13 +31,13 @@ void tri_shell(int tab[],int nb){
 
 		for(i=0;i<nb;i++){
 			val=tab[i];
-			//deplacement element
+			//deplacement elements
 			j=i;
 			while((j>=h) && (val<tab[j-h])){
 				tab[j]=tab[j-h];
 				j-=h;
 			}
-			//insertion des valeur
+			//insertion des valeurs
 			tab[j]=val;
 		}
 	}
