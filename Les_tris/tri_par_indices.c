@@ -44,10 +44,11 @@ void affichage(int tab[], int indices[],int nb ){
 
 //tris
 void tri_insertion(int tab[],int tab_indices[],int nb){
-	int i,j,indiceval,indices, val;
+	int *i,*j,indiceval,indices, val;
+	
 	//boucle d'initiationd des indices
-	for(i=0;i<nb;i++)
-		indices[i]=i;
+	for(i=0;i<nb;i++){indices[i]=i;}
+		//indices[i]=i;
 	//boucle de traitement
 	for(i=0;i<nb;i++){
 		indiceval=indices[i];
@@ -58,7 +59,7 @@ void tri_insertion(int tab[],int tab_indices[],int nb){
 			indices[j]=indices[j-1];
 			j--;
 		}
-		//insertion 
+		//insertion
 		indices[j]=indiceval;
 	}
 }
