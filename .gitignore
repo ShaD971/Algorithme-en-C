@@ -1,2 +1,26 @@
-# Executables
+# Executables and compiled artifacts
+*.exe
 *.out
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+*.dylib
+
+# Debug symbols and build folders
+*.pdb
+*.ilk
+build/*
+!build/update_report.txt
+bin/
+obj/
+
+# Editor and OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
