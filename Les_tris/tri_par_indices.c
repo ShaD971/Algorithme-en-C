@@ -7,7 +7,7 @@ void affichage(int tab[],int indices[],int nb);
 void reorganisation(int tab[],int indices[],int nb);
 
 int main(){
-		int tab_valeurs[MAX],tab_nbval=0,i,val=0,tab_indices[0];
+	int tab_valeurs[MAX],tab_nbval=0,i,val=0,tab_indices[MAX];
 	printf("Entrez une liste de la valeurs entieres terminées par -1\n");
 	while(val!=-1){
 		scanf("%d",&val);
@@ -44,23 +44,22 @@ void affichage(int tab[], int indices[],int nb ){
 
 //tris
 void tri_insertion(int tab[],int tab_indices[],int nb){
-	int *i,*j,indiceval,indices, val;
+	int i,j,indiceval,val;
 	
 	//boucle d'initiationd des indices
-	for(i=0;i<nb;i++){indices[i]=i;}
-		//indices[i]=i;
+	for(i=0;i<nb;i++){tab_indices[i]=i;}
 	//boucle de traitement
 	for(i=0;i<nb;i++){
-		indiceval=indices[i];
+		indiceval=tab_indices[i];
 		val=tab[indiceval];
 		/*boucle de deplacement des elements*/
 		j=i;
-		while((j>0)&&(val<tab[indices[j-1]])){
-			indices[j]=indices[j-1];
+		while((j>0)&&(val<tab[tab_indices[j-1]])){
+			tab_indices[j]=tab_indices[j-1];
 			j--;
 		}
 		//insertion
-		indices[j]=indiceval;
+		tab_indices[j]=indiceval;
 	}
 }
 
@@ -72,7 +71,7 @@ void reorganisation(int tab[],int indices[],int nb){
 			indice_cible=i;
 			indice_depart=indices[indice_cible];
 			while(indice_depart!=i){
-				tab[indice_cible]=tab[indice_cible];
+				tab[indice_cible]=tab[indice_depart];
 				indices[indice_cible]=indice_cible;
 				indice_cible=indice_depart;
 				indice_depart=indices[indice_cible];

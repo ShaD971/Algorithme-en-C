@@ -1,0 +1,22 @@
+Update report - Algorithme-en-C
+
+Fichiers modifies
+- .gitignore
+- README.md
+- Les_tris/tri_par_indices.c
+- build/update_report.txt
+
+Fonctionnalites / nettoyage
+- .gitignore complete pour C, VS Code, fichiers compiles et dossiers de build.
+- README reecrit avec description, structure, liste des algorithmes et commandes gcc.
+- Correction des libelles demandes : Recursivite, Suite de Fibonacci, Tri.
+- Correction minimale de tri_par_indices.c pour utiliser un tableau d'indices valide.
+
+Verification compilation
+- Commande tentee : gcc fichier.c -o build/programme.exe -lm
+- Resultat : impossible de compiler localement, gcc n'est pas installe ou pas disponible dans le PATH.
+
+Erreurs corrigees
+- tri_par_indices.c declarait tab_indices[0].
+- tri_par_indices.c utilisait des pointeurs pour les compteurs de boucle.
+- tri_par_indices.c utilisait une variable indices entiere comme tableau.
