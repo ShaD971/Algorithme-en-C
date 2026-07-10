@@ -1,0 +1,38 @@
+name: C CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install GCC
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential
+
+      - name: Compile C files
+        shell: bash
+        run: |
+          set -e
+          mkdir -p build
+          count=0
+
+          while IFS= read -r file; do
+            echo "Compiling $file"
+            gcc -Wall -Wextra -std=c11 "$file" -o "build/program_$count"
+            count=$((count + 1))
+          done < <(find . -type f -name "*.c" ! -path "./build/*" ! -path "./.git/*")
+
+          if [ "$count" -eq 0 ]; then
+            echo "No C files found"
+            exit 1
+          fi
+
+          echo "Compiled $count C file(s)"
