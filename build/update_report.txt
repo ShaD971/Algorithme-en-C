@@ -16,6 +16,12 @@ Verification compilation
 - Commande tentee : gcc fichier.c -o build/programme.exe -lm
 - Resultat : impossible de compiler localement, gcc n'est pas installe ou pas disponible dans le PATH.
 
+Correction GitHub Actions
+- Cause probable : aucun workflow local dans .github/workflows et/ou compilation CI generique incompatible avec ce depot sans Makefile.
+- Workflow ajoute : .github/workflows/c-cpp.yml
+- Le workflow compile chaque fichier .c separement dans build/program_INDEX.
+- Le lien utilise -lm pour DecFactPremier.c, qui appelle sqrt().
+
 Erreurs corrigees
 - tri_par_indices.c declarait tab_indices[0].
 - tri_par_indices.c utilisait des pointeurs pour les compteurs de boucle.

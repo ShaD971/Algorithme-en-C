@@ -1,0 +1,23 @@
+CI fix report
+
+Cause de l'erreur
+- Le workflow C/C++ CI utilisait un template Autotools alors que le depot ne contient pas de script configure.
+
+Fichier workflow modifie
+- .github/workflows/c-cpp.yml
+
+Ancienne commande supprimee
+- ./configure
+- make
+- make check
+- make distcheck
+
+Nouvelle strategie de compilation
+- Installer build-essential sur ubuntu-latest.
+- Creer le dossier build.
+- Rechercher tous les fichiers .c hors build et .git.
+- Compiler chaque fichier C separement avec gcc -Wall -Wextra -std=c11 vers build/program_N.
+- Echouer explicitement si aucun fichier C n'est trouve.
+
+Resultat du test local
+- Non effectue : gcc n'est pas disponible dans le PATH local Windows.

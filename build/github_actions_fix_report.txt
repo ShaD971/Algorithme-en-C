@@ -1,0 +1,21 @@
+GitHub Actions fix report
+
+Cause de l'erreur
+- Le check GitHub Actions executait un template Autotools avec ./configure, make, make check et make distcheck.
+- Le depot ne contient pas de script configure ni Makefile adapte, donc ./configure echouait avec "No such file or directory" et exit code 127.
+
+Workflow corrige
+- .github/workflows/c-cpp.yml
+- Le workflow installe build-essential sur ubuntu-latest.
+- Il cherche tous les fichiers .c hors build et .git.
+- Il compile chaque fichier .c separement vers build/program_N avec gcc -Wall -Wextra -std=c11.
+- Il echoue explicitement si aucun fichier C n'est trouve.
+
+Fichiers C corriges
+- Recursivite/DecFactPremier.c
+  - Suppression de la dependance a math.h / sqrt().
+  - Le fichier compile maintenant sans option de lien -lm, comme le workflow demande.
+
+Resultat du test local
+- Test local non execute jusqu'au bout : gcc n'est pas installe ou pas disponible dans le PATH Windows de cette machine.
+- Verification faite par inspection du workflow et des sources concernees.

@@ -14,6 +14,8 @@
 *.ilk
 build/*
 !build/update_report.txt
+!build/github_actions_fix_report.txt
+!build/ci_fix_report.txt
 bin/
 obj/
 
