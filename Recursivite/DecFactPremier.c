@@ -1,8 +1,7 @@
 /*Decomposition facteur premier*/
-/*Compilation: gcc DecFactPremier.c -o DecFactPremier -lm*/
+/*Compilation: gcc DecFactPremier.c -o DecFactPremier*/
 
 #include <stdio.h>
-#include <math.h>
 #define TAILLE 300000
 
 int nombrepremier(int nb);
@@ -17,7 +16,7 @@ int main(){
 
 	//Calcule nombre premier
 	tab_premiers[nbvalpremier++]=2;
-	for(i=3;i<(sqrt(N)+1);i+=2){
+	for(i=3;i*i<=N;i+=2){
 		if(nombrepremier(i))
 			tab_premiers[nbvalpremier++]=i;
 	}
@@ -54,7 +53,7 @@ void decomposition(int nb){
 int nombrepremier(int nb){
 	int reste, trouve, diviseur, i=0, limite, nb_iteratore=0;
 	//partie entiere de la racine carre
-	limite=sqrt(nb)+1;
+	limite=nb;
 	trouve=0;
 	//on teste tous les diviseurs contenus dans le tableaux
 	diviseur=2;
